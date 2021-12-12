@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
+
+form{
+    width:30rem;
+    height:35rem;
+    background-color:rgb(31, 30, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 1rem;
+    color:rgb(155, 154, 154);
+    font-family: 'Prompt', sans-serif;
+    border:8px outset cyan;
+}
+
+pre{
+    font-size: 1.4rem;
+}
+
+a{
+    color:rgb(92, 134, 134)
+}
+
+label{
+    margin-left:1.6rem;
+    font-size: 1rem;
+}
+
+h1{
+    text-align: center;
+    font-size: 3.4rem;
+    color:cyan;
+}
+
+form >div{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width:90%;
+    text-align: center;
+    margin:0 auto;
+    height:2rem;
+    border-radius: 0.5rem;
+    border:2px solid rgb(92, 91, 89);
+    font-size: 1.2rem;
+    background-color: rgb(92, 91, 89);
+    color: yellow;
+    font-weight: 900;
+}
+
+input:focus{
+    outline:none;
+    border:2px solid cyan
+}
+
+input::placeholder{
+    font-size: 1rem;
+}
+
+button{
+    width:10rem;
+    height:3rem;
+    display: inline-block;
+    margin: 2rem auto;
+    background-color: magenta;
+    border: none;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+button:hover{
+    background-color: rgb(212, 3, 212);
+}
+
+span{
+    font-size:0.8rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
