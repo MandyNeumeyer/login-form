@@ -15,8 +15,7 @@ const Form = () => {
     const [formValues, setFormValues] = useState(initialValue);
     const [isSignedUp, setSignedUp]=useState(false)
 
-    // all elements are objects???
-    // repeat destructuring!!!
+    
     const handleChange = (e) => {
         console.log(e.target);
         const {name, value}=e.target
