@@ -4,16 +4,18 @@ import { FaRegPaperPlane } from 'react-icons/fa';
 
 
 
-const Success = ({user, email}) => {
+const Success = ({ user, email }) => {
+    const upperCaseFirst = user[0].toUpperCase()+user.slice(1)
+
     return (
         <div className="Success">
             <FaRegPaperPlane size={60} />
             <div className="greeting">
-                <h2>Welcome</h2> <h3 className="magenta magenta-user">  {user}</h3>
+                <h2>Welcome {upperCaseFirst}</h2>
             </div>
-            <div className="confirm">
+            <div>
             <p>We have send an email to:</p>
-            <p className="yellow">{email}</p>
+            <p className="sendTo">{email}</p>
             <p>Please confirm!</p>
             </div>
         </div>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Success from './Success';
 import './Form.css'
-import { FaRegPaperPlane} from 'react-icons/fa';
+import { FaRegPaperPlane } from 'react-icons/fa';
+import Siren from '../img/siren.gif'
 
 
 
@@ -10,81 +11,137 @@ const Form = () => {
         username: "",
         email: "",
         password: "",
-        password2:""
+        password2: ""
     }
     const [formValues, setFormValues] = useState(initialValue);
-    const [isSignedUp, setSignedUp]=useState(false)
+    const [isSignedUp, setSignedUp] = useState(false);
 
-    // all elements are objects???
-    // repeat destructuring!!!
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [foundError, setFoundError] = useState({});
+
+
+    useEffect(() => {
+        console.log(foundError);
+        console.log(formValues);
+        if (Object.keys(foundError).length === 0 && isSubmitted) {
+            setSignedUp(true)
+        }
+    }, [foundError, isSubmitted])
+
+
     const handleChange = (e) => {
         console.log(e.target);
-        const {name, value}=e.target
+        const { name, value } = e.target
         setFormValues({
-            ...formValues, [name]:value
+            ...formValues, [name]: value
         })
         console.log(formValues);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setSignedUp(!isSignedUp)
+        setFoundError(validate(formValues))
+        setIsSubmitted(true)
     };
 
-    if(!isSignedUp){ 
-    return (
-        <div className="Form">
-            <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-            <form className="form" onSubmit={handleSubmit}>
-                <h1>Sign up</h1>
-                <div>
-                    <label htmlFor="username">Name</label>
-                    <input type="text"
-                        id="username"
-                        placeholder="pls enter your name"
-                        name="username"
-                        onChange={handleChange}
-                        value={formValues.username}
-                    />
+    const validate = (value) => {
+        const errors = {}
+        if (!value.username) {
+            errors.username = "please provide a username"
+
+        } if (!value.email) {
+            errors.email = "please provide an e-mail"
+
+        }else if (!value.email.includes('@')) {
+            errors.email = "please provide a valid e-mail"
+            setFormValues({
+                ...formValues, email: ""
+            })
+
+        } if (!value.password) {
+            errors.password = "please provide a password"
+
+        } else if (value.password.length < 4) {
+            errors.password = "pw must have at least 4 characters"
+            setFormValues({
+                ...formValues, password: "", password2: ""
+            })
+        } else if (value.password !== value.password2) {
+            errors.password2 = "passwords must match"
+            setFormValues({
+                ...formValues, password2: ""
+            })
+        }
+        return errors
+
+    }
+
+    if (!isSignedUp) {
+        return (
+            <div className="Form">
+                <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+                <form className="form" onSubmit={handleSubmit}>
+                    <h1>Sign up</h1>
+                    <div>
+                        <label htmlFor="username">Name</label>
+                        <input type="text"
+                            id="username"
+                            placeholder="please enter your name"
+                            name="username"
+                            onChange={handleChange}
+                            value={formValues.username}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email</label>
+                        <input type="text"
+                            id="email"
+                            placeholder="pls enter your email"
+                            name="email"
+                            onChange={handleChange}
+                            value={formValues.email}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password</label>
+                        <input type="password"
+                            id="password"
+                            placeholder="create a password with min 4 char"
+                            name="password"
+                            onChange={handleChange}
+                            value={formValues.password}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password2">Confirm Password</label>
+                        <input type="password"
+                            id="password2"
+                            placeholder="confirm your password"
+                            name="password2"
+                            onChange={handleChange}
+                            value={formValues.password2}
+                        />
+                    </div>
+                    <button type="submit"><FaRegPaperPlane /></button>
+                    <span>Already have an account? <a href="#">login here</a></span>
+                </form>
+                <div className="errors" style={{ visibility: Object.keys(foundError).length === 0 ? 'hidden' : 'visible', color: 'red' }}>
+                    <div className="siren">
+                        <img src={Siren} alt="siren-error-warning" />
+                        <h2>ERRORS</h2>
+                    </div>
+                    <div className="error-details">
+                        <pre>{foundError.username}</pre>
+                        <pre>{foundError.email}</pre>
+                        <pre>{foundError.password}</pre>
+                        <pre>{foundError.password2}</pre>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="text"
-                        id="email"
-                        placeholder="pls enter your email"
-                        name="email"
-                        onChange={handleChange}
-                        value={formValues.email}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password"
-                        id="password"
-                        placeholder="create a passord"
-                        name="password"
-                        onChange={handleChange}
-                        value={formValues.password}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password2">Confirm Password</label>
-                    <input type="password"
-                        id="password2"
-                        placeholder="confirm your passord"
-                        name="password2"
-                        onChange={handleChange}
-                        value={formValues.password2}
-                    />
-                </div>
-                <button type="submit"><FaRegPaperPlane/></button>
-                <span>Already have an account? <a href="#">login here</a></span>
-            </form>
-        </div>
-    )
+            </div>
+        )
     } else {
         return <Success user={formValues.username} email={formValues.email} />
-}
+    }
 
 }
 

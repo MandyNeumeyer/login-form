@@ -1,42 +1,25 @@
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
-
 .Success{
     font-size:1.8rem;
     font-weight: 900;
     margin:5rem auto;   
-    /* background-color: black; */
     width:100vw;
     height:100vh;
     color:grey;
     display:flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;   
 }
 
 .greeting{
-    display: flex;
     font-size: 3rem;
     margin: 1rem 0 0 3rem;
 }
 
-img{
-    width:4rem;
-}
-
-.yellow{
+.sendTo{
     color:yellow;
     background-color:magenta;
     text-align:center;
     padding:1rem 0rem;
     font-weight: 900;
-}
-.magenta-user{
-    margin-left:1rem;
-    font-size: 4rem;
 }
