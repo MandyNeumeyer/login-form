@@ -3,7 +3,6 @@
 ---
 ![](signUp.gif)
 
-As a guidline, how the finished product could be looking, use the picture as a refernce. 
 
 ---
 
@@ -13,6 +12,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 - Create the SignUp Form
 - To manage your state use the `useState` Hook from React.
 - After the user signed up, show the welcome page.
+- add your preferred styling
 ---
 ## :weight_lifting: Bonus - add validation
 
