@@ -22,7 +22,7 @@
 - e-mail contains @ sign etc. 
 - password has min char, incl. numbers etc.
 - both passwords match
-- 
+
 ---
 
 ![](signUp-errors.gif)
