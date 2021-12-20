@@ -1,10 +1,5 @@
 # Create a SignUp form:
 
----
-![](signUp.gif)
-
-
----
 
 ## :cartwheeling: Exercise
 
@@ -13,6 +8,11 @@
 - To manage your state use the `useState` Hook from React.
 - After the user signed up, show the welcome page.
 - add your preferred styling
+
+---
+
+![](signUp.gif)
+
 ---
 ## :weight_lifting: Bonus - add validation
 
@@ -22,7 +22,8 @@
 - e-mail contains @ sign etc. 
 - password has min char, incl. numbers etc.
 - both passwords match
-
+- 
+---
 
 ![](signUp-errors.gif)
 
