@@ -10,6 +10,8 @@
 - After the user signed up, show the welcome page.
 - add your preferred styling
 
+As a guidline, how the finished product could be looking, use the picture as a refernce.
+
 ![](signUp.gif)
 
 ---
