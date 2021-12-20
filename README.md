@@ -19,7 +19,6 @@ As a guidline, how the finished product could be looking, use the picture as a r
 - Add validation for all the fields 
 
 **suggestions for your validation**
-
 e.g. check if all field have entries, e-mail contains @ sign etc., password has min char, incl. numbers etc., both passwords match....)
 
 
