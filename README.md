@@ -18,7 +18,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 
 - Add validation for all the fields 
 
-**suggestions for your validation**
+:mag_right:**suggestions for your validation**
 
 - check if all field have entries
 - e-mail contains @ sign etc. 
