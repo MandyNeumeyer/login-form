@@ -21,7 +21,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 - Check if all field have entries.
 - Check if e-mail contains @ sign etc. 
 - Check if password has min char, incl. numbers etc.
-- Check if both passwords match
+- Check if both passwords do match.
 
 ![](signUp-errors.gif)
 
