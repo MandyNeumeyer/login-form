@@ -14,9 +14,9 @@ As a guidline, how the finished product could be looking, use the picture as a r
 - To manage your state use the `useState` Hook from React.
 - After the user signed up, show the welcome page.
 ---
-## :weight_lifting: Bonus - add validation for the fields
+## :weight_lifting: Bonus - add validation
 
-:mag_right: **suggestions for your validation**
+:mag_right: suggestions for your validation
 
 - check if all field have entries
 - e-mail contains @ sign etc. 
