@@ -18,9 +18,9 @@
 :mag_right: **suggestions for your validation**
 
 - check if all field have entries
-- e-mail contains @ sign etc. 
-- password has min char, incl. numbers etc.
-- both passwords match
+- check if e-mail contains @ sign etc. 
+- check if password has min char, incl. numbers etc.
+- check if both passwords match
 
 ![](signUp-errors.gif)
 
