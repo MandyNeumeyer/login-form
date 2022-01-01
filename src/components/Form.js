@@ -21,8 +21,6 @@ const Form = () => {
 
 
     useEffect(() => {
-        console.log(foundError);
-        console.log(formValues);
         if (Object.keys(foundError).length === 0 && isSubmitted) {
             setSignedUp(true)
         }
@@ -44,15 +42,21 @@ const Form = () => {
         setIsSubmitted(true)
     };
 
+    const isEmail = (email)=>{
+        // eslint-disable-next-line
+        const regex = `/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/`;
+        return regex.test(email);
+    }
+
     const validate = (value) => {
         const errors = {}
         if (!value.username) {
-            errors.username = "please provide a username"
+            errors.username = "username can not be blank"
 
         } if (!value.email) {
-            errors.email = "please provide an e-mail"
+            errors.email = "email can not be blank"
 
-        }else if (!value.email.includes('@')) {
+        }else if (!isEmail(value.email)) {
             errors.email = "please provide a valid e-mail"
             setFormValues({
                 ...formValues, email: ""
@@ -123,7 +127,7 @@ const Form = () => {
                         />
                     </div>
                     <button type="submit"><FaRegPaperPlane /></button>
-                    <span>Already have an account? <a href="#">login here</a></span>
+                    <span>Already have an account? <a href="/#">login here</a></span>
                 </form>
                 <div className="errors" style={{ visibility: Object.keys(foundError).length === 0 ? 'hidden' : 'visible', color: 'red' }}>
                     <div className="siren">
