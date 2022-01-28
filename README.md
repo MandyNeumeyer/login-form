@@ -25,7 +25,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 
 ![](signUp-errors.gif)
 
-## :weight_lifting::weight_lifting: Xtra Bonus :rocket: add a password visibility toggler
+## :weight_lifting::weight_lifting::bomb: Xtra Bonus :rocket: add a password visibility toggler
 
 - the icon and password visibility should be toggled when clicked
 
