@@ -27,7 +27,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 
 ## :weight_lifting::weight_lifting:Xtra Bonus - add a password visibility toggler
 
-![](visibilty-toggel.gif)
+![](visibilty-toggle.gif)
 
 ---
 
