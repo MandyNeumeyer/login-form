@@ -29,11 +29,7 @@ As a guidline, how the finished product could be looking, use the picture as a r
 
 - add a password visibility toggler
 
-<div align="center">
-
 ![](pw-visibility.gif)
-
-</div>
 
 ---
 
