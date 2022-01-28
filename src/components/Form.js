@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Success from './Success';
 import './Form.css'
-import { FaRegPaperPlane } from 'react-icons/fa';
+import { FaRegPaperPlane, FaRegEye, FaRegEyeSlash} from 'react-icons/fa';
 import Siren from '../img/siren.gif'
 
 
@@ -14,6 +14,8 @@ const Form = () => {
         password2: ""
     }
     const [formValues, setFormValues] = useState(initialValue);
+    const [passwordShown, setPasswordShown] = useState(false)
+    const [passwordRepeatShown, setPasswordRepeatShown] = useState(false)
     const [isSignedUp, setSignedUp] = useState(false);
 
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -25,7 +27,14 @@ const Form = () => {
             setSignedUp(true)
         }
     }, [foundError, isSubmitted])
-
+    
+    const styleIcons={
+        position: 'relative',
+        left: '25rem',
+        bottom: '1.9rem',
+        fontSize: '1.4rem',
+        color:'rgb(155, 154, 154)',
+    }
 
     const handleChange = (e) => {
         console.log(e.target);
@@ -107,23 +116,31 @@ const Form = () => {
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input type="password"
+                        <input type={passwordShown ? "text" : "password"}
                             id="password"
                             placeholder="create a password with min 4 char"
                             name="password"
                             onChange={handleChange}
-                            value={formValues.password}
+                            value={formValues.password}                
                         />
+                        <span onClick={() => setPasswordShown(!passwordShown)}>{passwordShown ?
+                                                                        <FaRegEye style={styleIcons} />
+                                                                      : <FaRegEyeSlash style={styleIcons} />}
+                        </span>
                     </div>
                     <div>
                         <label htmlFor="password2">Confirm Password</label>
-                        <input type="password"
+                        <input type={passwordRepeatShown ? "text" : "password"}
                             id="password2"
                             placeholder="confirm your password"
                             name="password2"
                             onChange={handleChange}
                             value={formValues.password2}
                         />
+                        <span onClick={() => setPasswordRepeatShown(!passwordRepeatShown)}>{passwordRepeatShown ?
+                                                                        <FaRegEye style={styleIcons} />
+                                                                      : <FaRegEyeSlash style={styleIcons} />}
+                        </span>
                     </div>
                     <button type="submit"><FaRegPaperPlane /></button>
                     <span>Already have an account? <a href="/#">login here</a></span>
