@@ -1,4 +1,4 @@
-# Create a SignUp form:
+# Create a SignUp form
 
 ---
 
