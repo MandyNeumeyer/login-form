@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Success from './Success';
 import './Form.css'
-import { FaRegPaperPlane, FaRegEye, FaRegEyeSlash} from 'react-icons/fa';
+import { FaRegPaperPlane, FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import Siren from '../img/siren.gif'
 
 
@@ -27,13 +27,13 @@ const Form = () => {
             setSignedUp(true)
         }
     }, [foundError, isSubmitted])
-    
-    const styleIcons={
+
+    const styleIcons = {
         position: 'relative',
         left: '25rem',
         bottom: '1.9rem',
         fontSize: '1.4rem',
-        color:'rgb(155, 154, 154)',
+        color: 'rgb(155, 154, 154)',
     }
 
     const handleChange = (e) => {
@@ -65,7 +65,7 @@ const Form = () => {
         } if (!value.email) {
             errors.email = "email can not be blank"
 
-        }else if (!isEmail(value.email)) {
+        } else if (!isEmail(value.email)) {
             errors.email = "please provide a valid e-mail"
             setFormValues({
                 ...formValues, email: ""
@@ -122,11 +122,11 @@ const Form = () => {
                             placeholder="create a password with min 4 char"
                             name="password"
                             onChange={handleChange}
-                            value={formValues.password}                
+                            value={formValues.password}
                         />
                         <span onClick={() => setPasswordShown(!passwordShown)}>{passwordShown ?
-                                                                        <FaRegEye style={styleIcons} />
-                                                                      : <FaRegEyeSlash style={styleIcons} />}
+                            <FaRegEye style={styleIcons} />
+                            : <FaRegEyeSlash style={styleIcons} />}
                         </span>
                     </div>
                     <div>
@@ -139,8 +139,8 @@ const Form = () => {
                             value={formValues.password2}
                         />
                         <span onClick={() => setPasswordRepeatShown(!passwordRepeatShown)}>{passwordRepeatShown ?
-                                                                        <FaRegEye style={styleIcons} />
-                                                                      : <FaRegEyeSlash style={styleIcons} />}
+                            <FaRegEye style={styleIcons} />
+                            : <FaRegEyeSlash style={styleIcons} />}
                         </span>
                     </div>
                     <button type="submit"><FaRegPaperPlane /></button>
